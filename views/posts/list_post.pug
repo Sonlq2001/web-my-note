@@ -1,14 +1,17 @@
-h4 danh sách bài viết	
-	
-form(action="/posts/search", method="GET")
-	input(type="text", placeholder="search...", name="q" value=valueSearch)
-	button search
+extends ../layouts/common
 
-a(href="/posts/add") add bài viết
+block content
+	h4 danh sách bài viết	
+		
+	form(action="/posts/search", method="GET")
+		input(type="text", placeholder="search...", name="q" value=valueSearch)
+		button search
 
-div
-	each post in posts
-		p #{`${post.title} : ${post.content}`}
-		a(href=`/posts/view/${post.id}`) view
-		hr
+	a(href="/posts/add") add bài viết
+
+	div
+		each post in posts
+			p #{`${post.title} : ${post.content}`}
+			a(href=`/posts/view/${post.id}`) view
+			hr
 

@@ -1,10 +1,13 @@
-h3 thêm bài viết
+extends ../layouts/common
 
-form(action="/posts/add", method="POST")
-	label tiều đề
-	input(type="text" placeholder="tiều đề", name="title")
+block content
+	h3 thêm bài viết
 
-	label nội dung
-	input(type="text" placeholder="nội dung", name="content")
+	form(action="/posts/add", method="POST")
+		label tiều đề
+		input(type="text" placeholder="tiều đề", name="title")
 
-	button tạo bài viết
+		label nội dung
+		input(type="text" placeholder="nội dung", name="content")
+
+		button(class="btn btn-primary") tạo bài viết

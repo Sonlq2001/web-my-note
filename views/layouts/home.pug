@@ -1,0 +1,17 @@
+extends ../index
+
+block main 
+    div(class="container mt-5")
+        div(class="row")
+            each post in posts 
+                div(class="col col-lg-4")
+                    .card.mb-3(style='max-width: 540px;')
+                        .row.g-0
+                            .col-md-4
+                                //- img(src='...', alt='...')
+                            .col-md-8
+                                .card-body
+                                    h5.card-title #{post.title}
+                                    p.card-text #{post.content}
+                                    p.card-text
+                                        small.text-muted Last updated 3 mins ago

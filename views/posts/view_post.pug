@@ -1,9 +1,12 @@
-extends ../layouts/common
+extends ../index
+block main
+    div(class="container mt-5")
+        div(class="row")
+            div(class="col col-lg-4")
+                h3 chi tiết bài viết
+                mark tiêu đề: 
+                span #{view.title} 
+                hr
+                mark nội dung: 
+                span #{view.content} 
 
-block content
-	h3 chi tiết bài viết
-	mark tiêu đề: 
-	span #{view.title} 
-	hr
-	mark nội dung: 
-	span #{view.content} 

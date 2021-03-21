@@ -1,6 +1,7 @@
 const express = require('express');
 
 const postRoute = require('./routes/post.route');
+const db = require('./db.js');
 
 const app = express();
 const port = 3000;
@@ -13,9 +14,14 @@ app.set('views', './views');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// static file
+app.use(express.static('public'))
+
 // trang chủ
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('layouts/home', {
+  	posts: db.get('dataPosts').value()
+  });
 })
 
 app.use('/posts', postRoute);

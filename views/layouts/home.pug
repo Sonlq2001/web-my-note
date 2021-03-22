@@ -11,7 +11,8 @@ block main
                                 //- img(src='...', alt='...')
                             .col-md-8
                                 .card-body
-                                    h5.card-title #{post.title}
+                                    a(href=`/posts/view/${post.id}`)
+                                        h5.card-title #{post.title}
                                     p.card-text #{post.content}
                                     p.card-text
                                         small.text-muted Last updated 3 mins ago

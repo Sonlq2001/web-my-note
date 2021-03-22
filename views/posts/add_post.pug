@@ -1,12 +1,20 @@
 extends ../index
 block main
-	h3 thêm bài viết
+	div(class="container mt-4")
+		div(class="row")
+			h4 Thêm bài viết
+			div(class="col col-lg-6")
+				//- lặp giá trị lỗi
+				if errors 
+					each error in errors 
+						div(class="alert alert-danger")= error
 
-	form(action="/posts/add", method="POST")
-		label tiều đề
-		input(type="text" placeholder="tiều đề", name="title")
+				form(action="/posts/add", method="POST")
+					.mb-3
+						label.form-label(for='exampleInputEmail1') Tiều đề
+						input.form-control(type='text',name="title", value=values ? values.title : '') 
 
-		label nội dung
-		input(type="text" placeholder="nội dung", name="content")
-
-		button(class="btn btn-primary") tạo bài viết
+					.mb-3
+						label.form-label(for='exampleInputPassword1') Nội dung
+						input.form-control(type='text', name="content"  value= values ? values.content : '')
+					button.btn.btn-primary(type='submit') Thêm bài viết

@@ -1,17 +1,27 @@
 extends ../index
 block main
-	div(class="container mt-5")
+	div(class="container mt-4")
 		div(class='row')
-			h4 danh sách bài viết	
-			form(action="/posts/search", method="GET")
-				input(type="text", placeholder="search...", name="q" value=valueSearch)
-				button search
-
-			a(href="/posts/add") add bài viết
+			h4 Danh sách bài viết	
+			div(class="col col-lg-12")
+				a(href="/posts/add" class="btn btn-primary w-25 mt-3 mb-5") Add bài viết
 			
-			each post in posts
-				div(class="col col-lg-4")
-					p #{`${post.title} : ${post.content}`}
-					a(href=`/posts/view/${post.id}`) view
-					hr
+			table.table.table-striped
+				thead
+					tr
+						th(scope='col') #
+						th(scope='col') Tiêu đề
+						th(scope='col') Nội dung
+						th(scope='col') Thao tác
+				tbody
+					each post,i in posts
+						tr
+							th(scope='row') #{i + 1}
+							td #{post.title}
+							td #{post.content}
+							td 
+								a(class="btn btn-primary mr-2", href="") Sửa
+								button(class="btn btn-danger") Xóa
+    
+			
 

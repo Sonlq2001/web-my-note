@@ -38,6 +38,25 @@ module.exports.viewPost = (req, res) => {
 
 module.exports.addPost = (req, res) => {
 	const post = req.body;
+	let errors = [];
+
+	// validate
+	if(!req.body.title) {
+		errors.push('Bạn chưa nhập tiêu đề !');
+	}
+
+	if(!req.body.content) {
+		errors.push('Bạn chưa nhập nội dung !');
+	}
+
+	if(errors.length) {
+		res.render('./posts/add_post', {
+			errors: errors,
+			values: req.body
+		});
+		return;
+	}
+
 	post.id = Math.random().toString(36).substr(2, 9);
 	db.get('dataPosts').push(post).write();
 	// chuyển hướng trang sau khi đã thêm post

@@ -1,6 +1,7 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
   .container
-    a.navbar-brand(href='/') Navbar
+    a.navbar-brand(href='/')
+      img(src="/images/logo.png")
     button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
@@ -9,8 +10,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
           a.nav-link.active(aria-current='page', href='/') Home
         li.nav-item
           a.nav-link(href='/posts') Posts
-      form.d-flex
-        input.form-control.me-2(type='search', placeholder='Search', aria-label='Search')
+      form.d-flex(action="/posts/search", method="GET")
+        input.form-control.me-2(type='search', placeholder='Search', aria-label='Search', name="q")
         button.btn.btn-outline-success(type='submit') Search
 
     

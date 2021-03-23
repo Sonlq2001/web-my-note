@@ -1,0 +1,20 @@
+extends ../index
+block main
+	div(class="container mt-4")
+		div(class="row")
+			h4 Đăng nhập
+			div(class="col col-lg-6")
+				//- lặp giá trị lỗi
+				if errors 
+					each error in errors 
+						div(class="alert alert-danger")= error
+
+				form(action="", method="POST")
+					.mb-3
+						label.form-label(for='exampleInputEmail1') Tài khoản
+						input.form-control(type='text',name="email", value=values ? values.email : '') 
+
+					.mb-3
+						label.form-label(for='exampleInputPassword1') Mật khẩu
+						input.form-control(type='password', name="password", value=values ? values.password : '')
+					button.btn.btn-primary(type='submit') Đăng nhập

@@ -1,7 +1,12 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 
-const postRoute = require('./routes/post.route');
+
 const db = require('./db.js');
+const postRoute = require('./routes/post.route');
+const authorRoute = require('./routes/author.route');
+
+const authorMiddleware = require('./middlewares/author.middleware');
 
 const app = express();
 const port = 3000;
@@ -9,6 +14,8 @@ const port = 3000;
 // cấu hình template engine pug
 app.set('view engine', 'pug');
 app.set('views', './views');
+
+app.use(cookieParser());
 
 // cấu hình lấy dữ liệu từ form gửi lên
 app.use(express.json());
@@ -24,7 +31,9 @@ app.get('/', (req, res) => {
   });
 })
 
-app.use('/posts', postRoute);
+
+app.use('/posts', authorMiddleware.requierAuthor, postRoute);
+app.use('/author', authorRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

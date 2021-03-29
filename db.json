@@ -29,6 +29,26 @@
       "title": "mai là thứ 2",
       "content": "học nodejs lúc 12h",
       "id": "4qs9txypb"
+    },
+    {
+      "title": "nay là thứ 6",
+      "content": "trời hơi ẩm nồm",
+      "id": "bct1wopkh"
+    },
+    {
+      "title": "Vừa mới ăn sáng xong",
+      "content": "Vừa mới ăn sáng xong",
+      "id": "cczqy8fvz"
+    },
+    {
+      "title": "Ăn cơm rang với thịt gà",
+      "content": "Ăn cơm rang với thịt gà",
+      "id": "hkdx30v43"
+    },
+    {
+      "title": "Lấy lại năng lượng nào",
+      "content": "Lấy lại năng lượng nào",
+      "id": "v3xjp06fc"
     }
   ],
   "user": [
@@ -36,6 +56,11 @@
       "id": "1uscfk1tc",
       "email": "sonweb2001@gmail.com",
       "password": "e10adc3949ba59abbe56e057f20f883e"
+    },
+    {
+      "id": "9ikdk9xa3",
+      "email": "admin@gmail.com",
+      "password": "498d3c6bfa033f6dc1be4fcc3c370aa7"
     }
   ]
 }

@@ -32,7 +32,7 @@ module.exports.viewPost = (req, res) => {
 	})
 
 	res.render('./posts/view_post', {
-		view: viewPost
+		view: viewPost,
 	});
 }
 

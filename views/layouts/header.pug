@@ -13,6 +13,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       form.d-flex(action="/posts/search", method="GET")
         input.form-control.me-2(type='search', placeholder='Search', aria-label='Search', name="q")
         button.btn.btn-outline-success(type='submit') Search
+        
+    p= user ? user.email : ''
+   
 
     
 

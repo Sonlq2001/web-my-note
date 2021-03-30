@@ -8,7 +8,7 @@ block main
                     .card.mb-3(style='max-width: 540px;')
                         .row.g-0
                             .col-md-4
-                                //- img(src='...', alt='...')
+                                img(src=post.image, alt='...', width="64", height="64")
                             .col-md-8
                                 .card-body
                                     a(href=`/posts/view/${post.id}`)
@@ -25,9 +25,10 @@ block main
                         a.page-link(href=`?page=${page - 1}`, tabindex='-1', aria-disabled='true') Previous
 
                 - let i = 1;
+
                 while i <= totalPage
                     li.page-item
-                        a.page-link(href=`?page=${i}`)= i++
+                        a(href=`?page=${i}`, class="page-link")= i++
 
                 if page < totalPage
                     li.page-item

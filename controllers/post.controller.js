@@ -39,6 +39,8 @@ module.exports.viewPost = (req, res) => {
 module.exports.addPost = (req, res) => {
 	const post = req.body;
 	
+	req.body.image = req.file.path.split('/').slice(1).join("/");
+
 	post.id = Math.random().toString(36).substr(2, 9);
 	db.get('dataPosts').push(post).write();
 	// chuyển hướng trang sau khi đã thêm post

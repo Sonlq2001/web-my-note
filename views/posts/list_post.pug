@@ -10,6 +10,7 @@ block main
 				thead
 					tr
 						th(scope='col') #
+						th(scope='col') Ảnh
 						th(scope='col') Tiêu đề
 						th(scope='col') Nội dung
 						th(scope='col') Thao tác
@@ -17,6 +18,8 @@ block main
 					each post,i in posts
 						tr
 							th(scope='row') #{i + 1}
+							td
+								img(src=post.image, width="64", height="64")
 							td #{post.title}
 							td #{post.content}
 							td 

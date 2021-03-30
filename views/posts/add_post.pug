@@ -9,7 +9,7 @@ block main
 					each error in errors 
 						div(class="alert alert-danger")= error
 
-				form(action="/posts/add", method="POST")
+				form(action="/posts/add", method="POST", enctype="multipart/form-data")
 					.mb-3
 						label.form-label(for='exampleInputEmail1') Tiều đề
 						input.form-control(type='text',name="title", value=values ? values.title : '') 
@@ -17,4 +17,7 @@ block main
 					.mb-3
 						label.form-label(for='exampleInputPassword1') Nội dung
 						input.form-control(type='text', name="content"  value= values ? values.content : '')
+					.mb-3
+						label.form-label(for='exampleInputPassword1') Ảnh
+						input.form-control(type='file', name="image")
 					button.btn.btn-primary(type='submit') Thêm bài viết

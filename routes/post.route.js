@@ -1,9 +1,11 @@
 const express = require('express');
-
+const multer  = require('multer');
 
 const postController = require('./../controllers/post.controller');
 // middleware
 const validate = require('../validate/user.validate');
+
+var upload = multer({ dest: './public/uploads/' })
 
 const router = express.Router();
 
@@ -20,6 +22,6 @@ router.get('/add', postController.addPage);
 router.get('/view/:id', postController.viewPost);
 
 // đẩy bài viết lên server
-router.post('/add', validate.addPost, postController.addPost);
+router.post('/add', upload.single('image'), validate.addPost, postController.addPost);
 
 module.exports = router;

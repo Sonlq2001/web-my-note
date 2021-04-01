@@ -3,12 +3,15 @@ require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 
-
+	
 const db = require('./db.js');
 const postRoute = require('./routes/post.route');
 const authorRoute = require('./routes/author.route');
+const cartRoute = require('./routes/cart.route');
 
+// middleware
 const authorMiddleware = require('./middlewares/author.middleware');
+const sessionMiddleware = require('./middlewares/session.middleware');
 
 const app = express();
 const port = 3000;
@@ -18,6 +21,7 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 
 app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(sessionMiddleware);
 
 // cấu hình lấy dữ liệu từ form gửi lên
 app.use(express.json());
@@ -48,6 +52,7 @@ app.get('/', authorMiddleware.requierAuthor, (req, res) => {
 
 app.use('/posts', authorMiddleware.requierAuthor, postRoute);
 app.use('/author', authorRoute);
+app.use('/cart', cartRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

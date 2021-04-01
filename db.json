@@ -79,5 +79,20 @@
       "email": "admin@gmail.com",
       "password": "498d3c6bfa033f6dc1be4fcc3c370aa7"
     }
+  ],
+  "sessions": [
+    {
+      "id": "m2mq2q5d4"
+    },
+    {
+      "id": "1sgce9ca6"
+    },
+    {
+      "id": "6povc9g04",
+      "cart": {
+        "lgn2y6h13": 2,
+        "ohan0utle": 1
+      }
+    }
   ]
 }

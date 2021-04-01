@@ -26,7 +26,7 @@ module.exports.addPage = (req, res) => {
 
 module.exports.viewPost = (req, res) => {
 	const idPost = req.params.id;
-
+	console.log(idPost);
 	const viewPost =  db.get('dataPosts').value().find(post => {
 		return post.id == idPost;
 	})
